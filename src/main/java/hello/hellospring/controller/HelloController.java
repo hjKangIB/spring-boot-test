@@ -1,5 +1,8 @@
 package hello.hellospring.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,22 +31,26 @@ public class HelloController {
 
 	@GetMapping("hello-api")
 	@ResponseBody
-	public Hello helloApi(@RequestParam(value = "name", required = false) String name) {
+	public Hello helloApi(@RequestParam(value = "name", required = false) String name, @RequestParam("age") String age) {
 		Hello hello = new Hello();
-		hello.setName(name);
+		hello.addUser(name, age);
 		return hello;
 
 	}
 
 	static class Hello {
-		private String name;
-
-		public String getName() {
-			return name;
+		private HashMap<String, String> user;
+		
+		public Hello () {
+			user = new HashMap<String, String>();
 		}
 
-		public void setName(String name) {
-			this.name = name;
+		public HashMap<String, String> getUser() {
+			return user;
+		}
+
+		public void addUser(String name, String age) {
+			user.put(name, age);
 		}
 	}
 
