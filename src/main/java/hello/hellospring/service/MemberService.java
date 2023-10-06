@@ -28,4 +28,8 @@ public class MemberService {
 		return memberRepository.findAll();
 
 	}
+
+	public Member findOne(Long id) {
+		return memberRepository.findById(id).get();
+	}
 }
