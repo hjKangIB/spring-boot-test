@@ -17,7 +17,6 @@ import hello.hellospring.service.MemberService;
 
 
 @SpringBootTest
-@Transactional
 public class MemberServiceIntegrationTest {
 	@Autowired
 	MemberService memberService;
@@ -57,8 +56,8 @@ public class MemberServiceIntegrationTest {
 		// given
 		Member member1 = new Member();
 		Member member2 = new Member();
-		member1.setName("spring1");
-		member2.setName("spring2");
+		member1.setName("spring2");
+		member2.setName("spring3");
 
 		memberService.join(member1);
 		memberService.join(member2);

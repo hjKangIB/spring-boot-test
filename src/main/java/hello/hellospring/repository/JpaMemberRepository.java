@@ -5,7 +5,9 @@ import java.util.Optional;
 
 import hello.hellospring.domain.Member;
 import jakarta.persistence.EntityManager;
+import jakarta.transaction.Transactional;
 
+@Transactional
 public class JpaMemberRepository implements MemberRepository {
 
 	private final EntityManager em;
