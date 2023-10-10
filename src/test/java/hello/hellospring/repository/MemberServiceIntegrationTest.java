@@ -17,6 +17,7 @@ import hello.hellospring.service.MemberService;
 
 
 @SpringBootTest
+@Transactional
 public class MemberServiceIntegrationTest {
 	@Autowired
 	MemberService memberService;
